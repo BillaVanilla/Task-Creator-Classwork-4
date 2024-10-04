@@ -81,14 +81,53 @@ void taskDeletion(int index) {
                         ),
                     ),
                    ),
-// Button for adding new task
 
+// Button for adding new task
+IconButton(
+  onPressed: addNewTask,
+    icon: const Icon(Icons.add),
+      color: Colors.yellow,
+        hoverColor: Colors.green,
+          tooltip: 'Add Task',
+                    ),
                 ],
               ),
-            ],
-         ),
+
+// Sturcture for where all tasks are checked off
+    const SizedBox(height: 20),
+      Expanded(
+        child: ListView.builder(
+          itemCount: listOfTasks.length,
+          itemBuilder: (context, index) {
+             return ListTile(
+              leading: Checkbox(
+                value: listOfTasks[index]['CompletedTask'],
+                onChanged: (value) {
+                  taskCompleteButton(index, value);
+                  },
+                ),
+
+// Delete Task Button
+title: Text(
+listOfTasks[index]['taskName'],
+style: TextStyle(
+decoration: listOfTasks[index]['CompletedTask']
+? TextDecoration.lineThrough
+:TextDecoration.none,
+        ),
+    ),
+trailing: IconButton(
+icon: const Icon(Icons.delete),
+onPressed: () => taskDeletion(index),
+tooltip: 'Delete Task',
+                ),
+             );
+          },
         ),
       ),
-    );
-  }
+            ],
+          ),
+        ),
+      );
+    }
 }
