@@ -48,6 +48,12 @@ void taskCompleteButton(int index, bool? value) {
     });
   }
 
+// Functionality for deleting task in list
+void taskDeletion(int index) {
+  setState(() {
+    listOfTasks.removeAt(index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
