@@ -27,7 +27,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+final List<Map<String, dynamic>> listOfTasks = [];
+final TextEditingController TaskController = TextEditingController();
 
+// Functionality for adding task in list
+ void addNewTask() {
+    setState(() {
+      listOfTasks.add({
+        'taskName': TaskController.text,
+        'CompletedTask': false,
+      });
+      TaskController.clear();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          
         ),
       ),
       
