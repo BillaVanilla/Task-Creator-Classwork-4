@@ -55,21 +55,40 @@ void taskDeletion(int index) {
     });
   }
 
+
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+         child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                   Expanded(
+                    child: TextField(
+                       controller: TaskController,
+                        decoration: const InputDecoration(
+                           hintText: 'Enter a Task',
+                            labelText: 'Task Input Manager',
+                            border: OutlineInputBorder(),
+                        ),
+                    ),
+                   ),
+// Button for adding new task
+
+                ],
+              ),
+            ],
+         ),
         ),
       ),
-      
     );
   }
 }
