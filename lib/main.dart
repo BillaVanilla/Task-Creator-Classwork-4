@@ -41,6 +41,14 @@ final TextEditingController TaskController = TextEditingController();
     });
   }
 
+// Functionality for checking off task in list
+void taskCompleteButton(int index, bool? value) {
+  setState(() {
+      listOfTasks[index]['CompletedTask'] = value!;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
 
